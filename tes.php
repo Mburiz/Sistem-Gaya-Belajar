@@ -59,7 +59,7 @@ cek_login();
 
         <!-- Pertanyaan 5 -->
         <div class="question-card">
-          <h3>5. Ketika mengingat sesuatu, kamu lebih mudah mengingat lewat...?</h3>
+          <h3>5. Saat mengingat sesuatu, cara apa yang paling membantumu mengingatnya?</h3>
           <label><input type="radio" name="q5" value="visual" required> Gambar atau tulisan yang kamu lihat</label>
           <label><input type="radio" name="q5" value="auditori"> Suara atau kata yang kamu dengar</label>
           <label><input type="radio" name="q5" value="kinestetik"> Gerakan atau tindakan yang kamu lakukan</label>
@@ -67,7 +67,7 @@ cek_login();
 
         <!-- Pertanyaan 6 -->
         <div class="question-card">
-          <h3>6. Dalam belajar menggunakan aplikasi baru, kamu lebih suka...</h3>
+          <h3>6. Saat belajar menggunakan aplikasi baru, apa yang paling membantumu memahaminya?</h3>
           <label><input type="radio" name="q6" value="visual" required> Melihat tutorial video atau panduan bergambar</label>
           <label><input type="radio" name="q6" value="auditori"> Mendengarkan seseorang menjelaskan langkah-langkahnya</label>
           <label><input type="radio" name="q6" value="kinestetik"> Langsung mengklik dan mencoba sendiri</label>
@@ -75,7 +75,7 @@ cek_login();
 
         <!-- Pertanyaan 7 -->
         <div class="question-card">
-          <h3>7. Ketika berdiskusi dengan teman, kamu lebih nyaman...</h3>
+          <h3>7. Saat berdiskusi dengan teman, hal apa yang membuatmu paling nyaman?</h3>
           <label><input type="radio" name="q7" value="visual" required> Menggunakan papan tulis atau coretan skema</label>
           <label><input type="radio" name="q7" value="auditori"> Berbicara dan mendengarkan pendapat teman</label>
           <label><input type="radio" name="q7" value="kinestetik"> Menunjukkan atau mempraktikkan ide langsung</label>
@@ -83,10 +83,17 @@ cek_login();
 
         <!-- Pertanyaan 8 -->
         <div class="question-card">
-          <h3>8. Saat mengingat arah atau lokasi, kamu biasanya...</h3>
+          <h3>8. Saat mengingat arah atau lokasi, apa yang paling membantumu mengingatnya?</h3>
           <label><input type="radio" name="q8" value="visual" required> Mengingat bentuk jalan atau peta</label>
           <label><input type="radio" name="q8" value="auditori"> Mengingat petunjuk verbal seperti "belok kiri di lampu merah"</label>
           <label><input type="radio" name="q8" value="kinestetik"> Mengingat gerakan atau rute saat berjalan</label>
+        </div>
+        <!-- Pertanyaan 9 -->
+        <div class="question-card">
+          <h3>9. Saat belajar, metode seperti apa yang paling membantumu memahami kegiatan fisik?</h3>
+          <label><input type="radio" name="q9" value="visual" required> Melihat video tutorial yang menunjukkan aktivitas fisik</label>
+          <label><input type="radio" name="q9" value="auditori"> Mendengarkan penjelasan tentang aktivitas tersebut</label>
+          <label><input type="radio" name="q9" value="kinestetik"> Langsung melakukan aktivitas tersebut</label>
         </div>
         <div class="submit-section">
           <button type="submit" class="btn-submit">

@@ -62,3 +62,24 @@ INSERT INTO soal_tes (pertanyaan, tipe) VALUES
 ('Saya suka mencatat dengan warna-warna untuk membedakan materi.', 'Visual'),
 ('Saya suka mendengarkan musik saat belajar.', 'Auditori'),
 ('Saya suka bergerak saat sedang berpikir atau belajar.', 'Kinestetik');
+
+-- Clear existing data
+TRUNCATE TABLE soal_tes;
+
+-- Insert updated questions matching tes.php
+INSERT INTO soal_tes (pertanyaan, tipe) VALUES
+('Ketika belajar hal baru, apa yang kamu lakukan terlebih dahulu?', 'Visual'),
+('Saat membaca buku, apa yang paling membantu kamu memahami isi bacaan?', 'Visual'),
+('Dalam presentasi, bagian mana yang paling kamu sukai?', 'Visual'),
+('Saat mengikuti pelatihan atau workshop, apa yang membuatmu paling mudah memahami materi?', 'Visual'),
+('Ketika mengingat sesuatu, kamu lebih mudah mengingat lewat apa?', 'Visual'),
+('Dalam belajar menggunakan aplikasi baru, kamu lebih suka?', 'Visual'),
+('Ketika berdiskusi dengan teman, kamu lebih nyaman?', 'Visual'),
+('Saat mengingat arah atau lokasi, kamu biasanya?', 'Visual');
+INSERT INTO soal_tes (pertanyaan, tipe) VALUES
+('Ketika belajar, saya lebih suka menggunakan alat bantu visual seperti peta pikiran atau diagram.', 'Visual');
+-- Modify hasil_tes table to ensure it can handle 8 questions
+ALTER TABLE hasil_tes 
+MODIFY skor_visual INT DEFAULT 0,
+MODIFY skor_auditori INT DEFAULT 0,
+MODIFY skor_kinestetik INT DEFAULT 0;
