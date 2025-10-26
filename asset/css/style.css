@@ -1,0 +1,679 @@
+/* ==== GLOBAL ==== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #111;
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ==== HEADER ==== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #1e3a8a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 900;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.menu-btn:hover {
+  color: #dbeafe;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header-right i {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.header-right i:hover {
+  color: #dbeafe;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+/* ==== SIDEBAR ==== */
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 240px;
+  height: calc(100% - 70px);
+  background-color: #1e3a8a;
+  color: white;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  z-index: 800;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.sidebar a i {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding-left: 5px;
+}
+
+/* Saat sidebar ditutup */
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* ==== MAIN CONTENT ==== */
+.main-content {
+  flex: 1;
+  margin-top: 70px;
+  margin-left: 240px;
+  padding: 30px;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.full {
+  margin-left: 0;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+/* ====== WELCOME SECTION ====== */
+.welcome-section {
+  margin-bottom: 2rem;
+}
+
+.welcome-section h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.welcome-section .welcome-text {
+  color: #475569;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ====== LEARNING STYLE CARDS ====== */
+.learning-styles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 700px;
+}
+
+.style-card {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.style-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.style-card .icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.4rem;
+  margin-right: 1rem;
+}
+
+.style-card .text h3 {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin-bottom: 0.3rem;
+}
+
+.style-card .text p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Warna ikon per gaya belajar */
+.style-card.visual .icon {
+  background-color: #4f46e5; /* biru */
+}
+
+.style-card.auditory .icon {
+  background-color: #22c55e; /* hijau */
+}
+
+.style-card.kinesthetic .icon {
+  background-color: #f97316; /* oranye */
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  .style-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .style-card .icon {
+    margin-bottom: 0.8rem;
+  }
+}
+
+/* ====== TES GAYA BELAJAR ====== */
+.test-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  max-width: 800px;
+}
+
+.question-card {
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.question-card h3 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 0.8rem;
+}
+
+.question-card label {
+  display: block;
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.question-card input[type="radio"] {
+  margin-right: 0.4rem;
+}
+
+.submit-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-submit {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #4338ca;
+}
+
+/* ====== MAIN CONTENT ====== */
+.main-content {
+  margin-left: 250px; /* sesuaikan dengan lebar sidebar */
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+
+/* ====== HISTORY TABLE ====== */
+.history-container {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow-x: auto;
+  max-width: 900px;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.styled-table thead {
+  background-color: #4f46e5;
+  color: #fff;
+}
+
+.styled-table th, .styled-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* ====== AKUN PAGE ====== */
+.akun-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.akun-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  flex: 1;
+  min-width: 280px;
+}
+
+.akun-card h2 {
+  color: #1e3a8a;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.akun-card p {
+  margin: 0.5rem 0;
+  color: #374151;
+}
+
+.akun-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.akun-card ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.akun-card ul li:last-child {
+  border-bottom: none;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background: #1e40af;
+}
+
+.btn-secondary {
+  background: #f1f5f9;
+  color: #1e3a8a;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #e2e8f0;
+}
+
+/* ====== EDIT PROFIL PAGE ====== */
+.edit-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.profile-card, .pengaturan-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  flex: 1;
+  min-width: 300px;
+}
+
+.profile-card h2, .pengaturan-card h2 {
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.edit-form label {
+  display: block;
+  font-weight: 600;
+  margin-top: 1rem;
+  color: #374151;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="email"],
+.edit-form input[type="password"],
+.edit-form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.foto-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.foto-preview img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #2563eb;
+}
+
+.msg {
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.msg.success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.msg.error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.pengaturan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pengaturan-card ul li {
+  margin-bottom: 0.75rem;
+}
+
+.pengaturan-card ul li a {
+  color: #1e3a8a;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.pengaturan-card ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Mode gelap */
+body.dark-mode {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+body.dark-mode .card {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+.alert {
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+.alert-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+.alert-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* ======== MODE TERANG ======== */
+body {
+  background-color: #f8f9fc;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+header, .sidebar {
+  background-color: #1e40af;
+  color: #fff;
+}
+
+.card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ======== MODE GELAP ======== */
+body.dark {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+
+body.dark header,
+body.dark .sidebar {
+  background-color: #0f172a;
+  color: #f5f5f5;
+}
+
+body.dark .card {
+  background-color: #262626;
+  color: #f5f5f5;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+body.dark a {
+  color: #93c5fd;
+}
+/* ======== FIX: Sidebar & Header Tetap Jelas di Mode Gelap ======== */
+
+/* Warna dasar mode gelap modern */
+body.dark-mode,
+body.dark {
+  background-color: #0f172a; /* biru gelap elegan */
+  color: #f1f5f9;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header tetap terlihat jelas */
+body.dark-mode .header,
+body.dark .header {
+  background-color: #1e3a8a; /* biru tua solid */
+  color: #ffffff;
+  border-bottom: 1px solid #334155;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Sidebar tetap cerah dan kontras */
+body.dark-mode .sidebar,
+body.dark .sidebar {
+  background-color: #1e40af; /* biru indigo kuat */
+  color: #ffffff;
+  border-right: 1px solid #334155;
+}
+
+body.dark-mode .sidebar h2,
+body.dark .sidebar h2 {
+  color: #f8fafc;
+}
+
+body.dark-mode .sidebar a,
+body.dark .sidebar a {
+  color: #e0e7ff;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .sidebar a:hover,
+body.dark .sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: 8px;
+  padding-left: 8px;
+}
+
+/* Card tetap lembut dan elegan */
+body.dark-mode .card,
+body.dark .card {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Tombol tetap biru */
+body.dark-mode .btn,
+body.dark .btn {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+body.dark-mode .btn:hover,
+body.dark .btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Warna teks heading */
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
+body.dark h1, body.dark h2, body.dark h3 {
+  color: #f8fafc;
+}
+
+.btn-delete {
+  color: #fff;
+  background: #e74c3c;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-delete:hover {
+  background: #c0392b;
+}
